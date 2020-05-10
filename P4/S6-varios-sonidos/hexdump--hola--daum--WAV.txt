@@ -1,0 +1,35 @@
+
+$ hexdump -n48 daum.wav 
+0000000 52 49 46 46 10 c4 00 00 57 41 56 45 66 6d 74 20
+0000010 10 00 00 00 01 00 02 00 80 3e 00 00 00 fa 00 00
+0000020 04 00 10 00 64 61 74 61 ec c3 00 00 f4 ff f4 ff
+0000030
+
+$ hexdump -n96 hola.wav 
+0000000 52 49 46 46 7c c8 00 00 57 41 56 45 4a 55 4e 4b
+0000010 1c 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0000020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0000030 66 6d 74 20 10 00 00 00 03 00 01 00 22 56 00 00
+0000040 88 58 01 00 04 00 20 00 46 4c 4c 52 a8 0f 00 00
+0000050 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0000060
+
+
+$ python infowav.py daum.wav 
+Subchunks Found: 
+fmt ,  data,  
+Data Chunk located at offset [36] of data length [50156] bytes
+ByteRate:  64000
+BitsPerSample:  16
+NumChannels:  2
+Subchunk1Size:  16
+ChunkSize:  50192
+Format:  WAVE
+AudioFormat:  1
+BlockAlign:  4
+SampleRate:  16000
+Filename:  daum.wav
+
+$ python infowav.py hola.wav 
+DEBUG:root:Input file not a standard WAV file
+
