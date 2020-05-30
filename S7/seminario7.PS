@@ -1,0 +1,97 @@
+%!PS
+%%La visualización de los objetos resultantes se ha realizado con PhotoShop
+%% Draws a square box at (x,y)=(100,500) from bottom-left
+newpath % Start a new path
+100 500 moveto % move pointer to (x,y)=(100,500)
+180 0 rlineto
+0 180 rlineto
+-180 0 rlineto
+closepath
+5 setlinewidth
+stroke
+
+%%Añadimos un texto de ejemplo dentro del cuadrado anterior(y lo rotamos y lo escalamos)
+/Times-Roman findfont
+24 scalefont
+setfont
+gsave         %%guardo el estado antes de hacer las transformaciones afines para evitar
+%%que el resto de objetos se vean afectados
+155 545 translate
+45 rotate
+2 1 scale
+0 0 1 setrgbcolor
+newpath
+0 0 moveto
+(PDIH) true charpath
+fill
+grestore  %%restauro los valores antes de las transformaciones afines
+stroke
+
+%%Dibujamos un triangulo en forma de flecha con el borde gris claro y relleno de
+%%gris oscuro
+newpath
+100 200 moveto
+200 250 lineto
+100 300 lineto
+closepath
+gsave
+0.5 setgray
+fill
+grestore
+4 setlinewidth
+0.75 setgray
+
+stroke % finish the path (paint the lines)
+
+%%Dibujamos un par de lineas en ángulo de 45º de color verde
+/ANGLE {
+   newpath
+   300 200 moveto
+   0 0 lineto
+   300 0 lineto
+   stroke
+} def
+0 1 0 setrgbcolor
+8 setlinewidth
+0 setlinejoin
+300 100 translate
+ANGLE
+
+
+%%Dibujamos a Pacman
+1 setlinewidth
+1 1 0 setrgbcolor
+200 300 moveto
+200 300 50 30 330 arc
+fill
+stroke
+
+%%Dibujamos un corazón a base de 2 circulos y 3 rectángulos (uno abajo de base
+%%y 2 más para rellenar de rojo la figura y que no queden espacios en blanco)
+1 0 0 setrgbcolor
+3 setlinewidth
+200 600 moveto
+200 600 50 0 360 arc   %%circulo de la derecha
+fill
+stroke
+100 600 moveto
+100 600 50 0 360 arc   %%circulo de la izquierda
+fill
+150 480 moveto         %%triangulo de la base
+237 566 lineto
+63 566 lineto
+fill
+stroke
+
+130 600 moveto        %%triangulo superior izquierda
+180 600 lineto
+130 566 lineto
+fill
+stroke
+180 566 moveto        %%tringulo inferior derecha
+180 600 lineto
+130 566 lineto
+fill
+stroke
+
+showpage 
